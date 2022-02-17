@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Designer</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<script src="./script.js" defer></script>
+
+<body>
+    <div class="top-wrapper">
+        <div class="dropdown">
+            <label for="color-harmony-dropdown">Change color harmony:</label>
+            <select name="Harmony" id="harmony-dropdown">
+          <option value="analogous">Analogous</option>
+          <option value="monochromatic">Monochromatic</option>
+          <option value="triad">Triad</option>
+          <option value="complementary">Complementary</option>
+          <option value="compound">Compound</option>
+          <option value="shades">Shades</option>
+        </select>
+        </div>
+        <div class="color-wheel-container">
+            <label for="color-picker">Pick a color:</label>
+            <input type="color" value="" id="color-picker" />
+        </div>
+    </div>
+    <div class="color-squares-wrapper">
+        <div class="color-info">
+            <div class="color-square" id="base-color-square"></div>
+            <div class="color-values" id="base-color-values">
+                <div class="HEX"><span>HEX:</span></div>
+                <div class="RGB"><span>RGB:</span></div>
+                <div class="HSL"><span>HSL:</span></div>
+            </div>
+        </div>
+        <div class="color-info">
+            <div class="color-square" id="color2-square"></div>
+            <div class="color-values" id="color2-values">
+                <div class="HEX"><span>HEX:</span></div>
+                <div class="RGB"><span>RGB:</span></div>
+                <div class="HSL"><span>HSL:</span></div>
+            </div>
+        </div>
+        <div class="color-info">
+            <div class="color-square" id="color3-square"></div>
+            <div class="color-values" id="color3-values">
+                <div class="HEX"><span>HEX:</span></div>
+                <div class="RGB"><span>RGB:</span></div>
+                <div class="HSL"><span>HSL:</span></div>
+            </div>
+        </div>
+        <div class="color-info">
+            <div class="color-square" id="color4-square"></div>
+            <div class="color-values" id="color4-values">
+                <div class="HEX"><span>HEX:</span></div>
+                <div class="RGB"><span>RGB:</span></div>
+                <div class="HSL"><span>HSL:</span></div>
+            </div>
+        </div>
+        <div class="color-info">
+            <div class="color-square" id="color5-square"></div>
+            <div class="color-values" id="color5-values">
+                <div class="HEX"><span>HEX:</span></div>
+                <div class="RGB"><span>RGB:</span></div>
+                <div class="HSL"><span>HSL:</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

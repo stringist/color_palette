@@ -30,28 +30,28 @@ function generateHSLPalette(HSL) {
     }
 
     if ((dropDownValue === "monochromatic")) {
-        const monoChromatic = makeMonochromatic(HSL);
-        displayPalette(monoChromatic)
+        const monoChromaticHSL = makeMonochromatic(HSL);
+        getRGB(monoChromaticHSL);
     }
 
     if ((dropDownValue === "triad")) {
         const triad = makeTriad(HSL);
-        displayPalette(triad)
+        getRGB(triad);
     }
 
     if ((dropDownValue === "complementary")) {
         const complementary = makeComplementary(HSL);
-        displayPalette(complementary)
+        getRGB(complementary);
     }
 
     if ((dropDownValue === "compound")) {
         const compound = makeCompound(HSL);
-        displayPalette(compound);
+        getRGB(compound);
     }
 
     if ((dropDownValue === "shades")) {
         const shades = makeShades(HSL);
-        displayPalette(shades);
+        getRGB(shades);
     }
 }
 
@@ -63,66 +63,83 @@ function makeAnalogous(HSL) {
     const color2 = { h: h + 15, s: s, l: l };
     const color3 = { h: h + 30, s: s, l: l };
     const color4 = { h: h + 45, s: s, l: l };
-    const color5 = { h: +60, s: s, l: l };
-    const color6 = { h: +75, s: s, l: l }
+    const color5 = { h: h + 60, s: s, l: l };
+    const color6 = { h: h + 75, s: s, l: l }
         // console.log(baseColor, color2, color3, color4, color5, color6);
     return [baseColor, color2, color3, color4, color5, color6];
 }
 
-// function makeMonochromatic(HSL) {
-//     const h = HSL.h;
-//     const s = HSL.s;
-//     const l = HSL.l;
-//     const color2 = { h: , s: , l: }
-//     const color3 = { h: , s: , l: }
-//     const color4 = { h: , s: , l: }
-//     const color5 = { h: , s: , l: }
-//     return { baseColor, color2, color3, color4, color5 }
-// }
+function makeMonochromatic(HSL) {
+    const h = HSL.h;
+    const s = HSL.s;
+    const l = HSL.l;
+    const baseColor = { h: h, s: s, l: l };
+    const color2 = { h: h, s: s + 50, l: l };
+    const color3 = { h: h, s: s - 50, l: l };
+    const color4 = { h: h, s: s, l: l + 50 };
+    const color5 = { h: h, s: s, l: l - 50 };
+    const color6 = { h: h, s: s + 100, l: l };
+    console.log("make monochromatic gives: ", baseColor, color2, color3, color4, color5, color6);
+    return [baseColor, color2, color3, color4, color5, color6];
+}
 
-// function makeTriad(HSL) {
-//     const h = HSL.h;
-//     const s = HSL.s;
-//     const l = HSL.l;
-//     const color2 = { h: , s: , l: }
-//     const color3 = { h: , s: , l: }
-//     const color4 = { h: , s: , l: }
-//     const color5 = { h: , s: , l: }
-//     return { baseColor, color2, color3, color4, color5 }
-// }
+function makeTriad(HSL) {
+    const h = HSL.h;
+    const s = HSL.s;
+    const l = HSL.l;
+    const baseColor = { h: h + 60, s: s, l: l };
+    const color2 = { h: h + 120, s: s, l: l };
+    const color3 = { h: h + 180, s: s, l: l };
+    const color4 = { h: h + 240, s: s, l: l };
+    const color5 = { h: h + 240, s: s, l: l + 10 };
+    const color6 = { h: h + 3, s: s, l: l + 20 };
+    console.log("make monochromatic gives: ", baseColor, color2, color3, color4, color5, color6);
+    return [baseColor, color2, color3, color4, color5, color6];
+}
 
-// function makeComplementary(HSL) {
-//     const h = HSL.h;
-//     const s = HSL.s;
-//     const l = HSL.l;
-//     const color2 = { h: , s: , l: }
-//     const color3 = { h: , s: , l: }
-//     const color4 = { h: , s: , l: }
-//     const color5 = { h: , s: , l: }
-//     return { baseColor, color2, color3, color4, color5 }
-// }
+function makeComplementary(HSL) {
+    const h = HSL.h;
+    const s = HSL.s;
+    const l = HSL.l;
+    const baseColor = { h: h, s: s, l: l };
+    const color2 = { h: h + 180, s: s, l: l };
+    const color3 = { h: h + 90, s: s, l: l };
+    const color4 = { h: h + 135, s: s, l: l };
+    const color5 = { h: h + 225, s: s, l: l + 10 };
+    const color6 = { h: h + 180, s: s, l: l + 20 };
+    console.log("make complementary gives: ", baseColor, color2, color3, color4, color5, color6);
+    return [baseColor, color2, color3, color4, color5, color6];
+}
 
-// function makeCompound(HSL) {
-//     const h = HSL.h;
-//     const s = HSL.s;
-//     const l = HSL.l;
-//     const color2 = { h: , s: , l: }
-//     const color3 = { h: , s: , l: }
-//     const color4 = { h: , s: , l: }
-//     const color5 = { h: , s: , l: }
-//     return { baseColor, color2, color3, color4, color5 }
-// }
+function makeCompound(HSL) {
+    const h = HSL.h;
+    const s = HSL.s;
+    const l = HSL.l;
+    const baseColor = { h: h, s: s, l: l };
+    const color2 = { h: h + 90, s: s, l: l };
+    const color3 = { h: h + 180, s: s, l: l };
+    const color4 = { h: h, s: s + 90, l: l };
+    const color5 = { h: h, s: s + 180, l: l };
+    const color6 = { h: h, s: s - 90, l: l };
+    console.log("make monochromatic gives: ", baseColor, color2, color3, color4, color5, color6);
+    return [baseColor, color2, color3, color4, color5, color6];
+}
 
-// function makeShades(HSL) {
-//     const h = HSL.h;
-//     const s = HSL.s;
-//     const l = HSL.l;
-//     const color2 = { h: , s: , l: }
-//     const color3 = { h: , s: , l: }
-//     const color4 = { h: , s: , l: }
-//     const color5 = { h: , s: , l: }
-//     return { baseColor, color2, color3, color4, color5 }
-// }
+
+function makeShades(HSL) {
+    const h = HSL.h;
+    const s = HSL.s;
+    const l = HSL.l;
+    const baseColor = { h: h, s: s, l: l };
+    const color2 = { h: h, s: s, l: l - 20 };
+    const color3 = { h: h, s: s, l: l - 10 };
+    const color4 = { h: h, s: s, l: l + 10 };
+    const color5 = { h: h, s: s, l: l + 20 };
+    const color6 = { h: h, s: s, l: l + 30 };
+    console.log("make monochromatic gives: ", baseColor, color2, color3, color4, color5, color6);
+    return [baseColor, color2, color3, color4, color5, color6];
+}
+
 
 function displayPalette(RGBArr, HSLArr) {
     const HEXArr = RGBArr.map(RGBArr => { return rgbToHex(RGBArr); });
@@ -138,6 +155,27 @@ function displayPalette(RGBArr, HSLArr) {
     document.querySelector("#base-color-values .HEX").textContent = "HEX: " + HEXArr[0].toUpperCase();
     document.querySelector("#base-color-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[0]);
     document.querySelector("#base-color-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[0]);
+
+    document.querySelector("#color2-values .HEX").textContent = "HEX: " + HEXArr[1].toUpperCase();
+    document.querySelector("#color2-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[1]);
+    document.querySelector("#color2-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[1]);
+
+    document.querySelector("#color3-values .HEX").textContent = "HEX: " + HEXArr[2].toUpperCase();
+    document.querySelector("#color3-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[2]);
+    document.querySelector("#color3-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[2]);
+
+    document.querySelector("#color4-values .HEX").textContent = "HEX: " + HEXArr[3].toUpperCase();
+    document.querySelector("#color4-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[3]);
+    document.querySelector("#color4-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[3]);
+
+    document.querySelector("#color5-values .HEX").textContent = "HEX: " + HEXArr[4].toUpperCase();
+    document.querySelector("#color5-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[4]);
+    document.querySelector("#color5-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[4]);
+
+    document.querySelector("#color6-values .HEX").textContent = "HEX: " + HEXArr[5].toUpperCase();
+    document.querySelector("#color6-values .RGB").textContent = "RGB: " + rgbObjToString(RGBArr[5]);
+    document.querySelector("#color6-values .HSL").textContent = "HSL: " + hslObjToString(HSLArr[5]);
+
 
 
 

@@ -36,15 +36,17 @@ body {
 .color-info {
     /* border: solid 1px blue; */
     width: 100%;
+    font-size: .8rem;
 }
 
 .color-square {
     width: calc(95vw / 5vw);
     height: calc(95vw / 5);
-    border: solid 1px red;
+    display: flex;
 }
 
 .color-values {
     display: flex column;
     gap: 2rem;
+    justify-content: space-between;
 }

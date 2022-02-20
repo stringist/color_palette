@@ -26,27 +26,28 @@ body {
 
 .color-squares-wrapper {
     display: flex;
-    width: 95vw;
+    width: 99vw;
     margin-left: auto;
     margin-right: auto;
-    border: solid 1px blue;
+    /* border: solid 1px blue; */
     /* min-height: 50vw; */
 }
 
 .color-info {
     /* border: solid 1px blue; */
     width: 100%;
-    font-size: .8rem;
+    font-size: .7rem;
 }
 
 .color-square {
-    width: calc(95vw / 5vw);
+    width: calc(99vw / 5vw);
     height: calc(95vw / 5);
     display: flex;
 }
 
 .color-values {
     display: flex column;
-    gap: 2rem;
+    gap: 3rem;
     justify-content: space-between;
+    margin-top: .5rem;
 }
